@@ -3,15 +3,14 @@
 import Image from "next/image";
 import projects from "../data/projects";
 import { motion } from "framer-motion";
-import { FaAws, FaPython, FaChartLine, FaFacebook, FaScrewdriver } from "react-icons/fa";
+import { FaAws, FaPython, FaChartLine, FaFacebook, FaScrewdriver, FaCode, FaCloud, FaChartBar, FaBullhorn } from "react-icons/fa";
 
 const skills = [
-  { name: "AWS", icon: FaAws },
-  { name: "Python", icon: FaPython },
-  { name: "Meta Ads", icon: FaFacebook },
-  { name: "Next.js", icon: FaChartLine },
-  { name: "Scalability", icon: FaScrewdriver },
-  { name: "WebSockets", icon: FaChartLine },
+  { name: "Full Stack Dev (Next.js/TS)", icon: FaCode },
+  { name: "Cloud Infra (AWS)", icon: FaCloud },
+  { name: "Data Analysis (Python)", icon: FaPython },
+  { name: "Marketing Strategy (Meta Ads)", icon: FaBullhorn },
+  { name: "WebSockets", icon: FaChartLine }, // Keeping some others for variety
   { name: "Tailwind CSS", icon: FaChartLine },
   { name: "Framer Motion", icon: FaChartLine },
   { name: "Lead Gen", icon: FaChartLine },
@@ -34,7 +33,7 @@ export default function Home() {
             alt="Amir B. Avatar"
             width={150}
             height={150}
-            className="rounded-full mx-auto mb-6 border-4 border-blue-500 shadow-xl glow-effect"
+            className="rounded-full mx-auto mb-6 border-4 border-blue-500 shadow-xl glow-effect animate-pulse-subtle" // Added animate-pulse-subtle
           />
           <h1 className="text-6xl font-extrabold text-blue-400 mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
             Amir B.
@@ -45,37 +44,23 @@ export default function Home() {
           </p>
         </motion.header>
 
-        {/* Skills Section (Marquee) */}
+        {/* Skills Section (Grid of Icons/Tags) */}
         <section className="mb-20">
           <h2 className="text-4xl font-bold text-center text-blue-400 mb-10">Core Competencies</h2>
-          <div className="relative overflow-hidden h-20 bg-gradient-to-r from-slate-950 via-slate-800 to-slate-950 rounded-xl border border-gray-700 shadow-lg">
-            <motion.div
-              className="absolute flex items-center whitespace-nowrap"
-              animate={{
-                x: ['100%', '-100%'],
-                transition: {
-                  x: {
-                    repeat: Infinity,
-                    repeatType: "loop",
-                    duration: 40,
-                    ease: "linear",
-                  },
-                },
-              }}
-            >
-              {skills.concat(skills).map((skill, index) => (
-                <span key={index} className="flex items-center text-2xl text-gray-400 mx-8 opacity-70 hover:opacity-100 transition-opacity duration-300">
-                  <skill.icon className="mr-3 text-blue-500" /> {skill.name}
-                </span>
-              ))}
-            </motion.div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 px-4 py-8 bg-gradient-to-br from-slate-800/60 to-slate-900/60 rounded-2xl border border-gray-700 shadow-xl backdrop-filter backdrop-blur-lg">
+            {skills.slice(0, 4).map((skill, index) => ( // Displaying only the first 4 for a concise grid
+              <div key={index} className="flex flex-col items-center p-4 text-center bg-slate-700/40 rounded-lg border border-blue-600/30 hover:bg-slate-700/60 transition-colors duration-300">
+                <skill.icon className="text-5xl text-blue-400 mb-3" />
+                <span className="text-lg font-semibold text-gray-200">{skill.name}</span>
+              </div>
+            ))}
           </div>
         </section>
 
         {/* Projects Section (Bento Grid) */}
         <section>
           <h2 className="text-4xl font-bold text-center text-blue-400 mb-12">Featured Work</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8 auto-rows-fr">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 auto-rows-fr"> {/* Changed to md:grid-cols-3 */} 
             {projects.map((project, index) => {
               const isElevenClub = project.name.includes("Eleven Club");
               return (
@@ -85,9 +70,9 @@ export default function Home() {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: index * 0.15 }}
                   whileHover={{ y: -10, boxShadow: "0 15px 30px rgba(0, 200, 255, 0.3)" }} // Hover effect with glow
-                  className={`relative p-8 rounded-2xl border border-gray-700 bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-filter backdrop-blur-md shadow-2xl transition-all duration-300 ease-in-out
-                    ${isElevenClub ? 'md:col-span-2 row-span-2' : ''}
-                    overflow-hidden
+                  className={`relative p-8 rounded-2xl border border-gray-700 bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-filter backdrop-blur-md shadow-2xl transition-all duration-300 ease-in-out border-gradient-effect // Added border-gradient-effect
+                    ${isElevenClub ? 'md:col-span-2 md:row-span-2' : ''} // Applied md:col-span-2 and md:row-span-2
+                    overflow-hidden flex flex-col
                   `}
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-purple-600/10 opacity-0 hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0"></div>
