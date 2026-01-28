@@ -33,7 +33,7 @@ export default function Home() {
             alt="Amir B. Avatar"
             width={150}
             height={150}
-            className="rounded-full mx-auto mb-6 border-4 border-blue-500 shadow-xl glow-effect animate-pulse-subtle"
+            className="rounded-full mx-auto mb-6 border-4 border-blue-500 shadow-xl glow-effect animate-pulse-subtle object-cover" // Added object-cover
           />
           <h1 className="text-6xl font-extrabold text-blue-400 mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
             Amir B.
