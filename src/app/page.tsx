@@ -10,7 +10,7 @@ const skills = [
   { name: "Cloud Infra (AWS)", icon: FaCloud },
   { name: "Data Analysis (Python)", icon: FaPython },
   { name: "Marketing Strategy (Meta Ads)", icon: FaBullhorn },
-  { name: "WebSockets", icon: FaChartLine }, // Keeping some others for variety
+  { name: "WebSockets", icon: FaChartLine },
   { name: "Tailwind CSS", icon: FaChartLine },
   { name: "Framer Motion", icon: FaChartLine },
   { name: "Lead Gen", icon: FaChartLine },
@@ -33,14 +33,14 @@ export default function Home() {
             alt="Amir B. Avatar"
             width={150}
             height={150}
-            className="rounded-full mx-auto mb-6 border-4 border-blue-500 shadow-xl glow-effect animate-pulse-subtle" // Added animate-pulse-subtle
+            className="rounded-full mx-auto mb-6 border-4 border-blue-500 shadow-xl glow-effect animate-pulse-subtle"
           />
           <h1 className="text-6xl font-extrabold text-blue-400 mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
             Amir B.
           </h1>
-          <p className="text-2xl font-light text-gray-300 mb-6">Tech & Marketing Manager</p>
+          <p className="text-2xl font-light text-gray-300 mb-6">Technical & Operations Manager</p>
           <p className="text-lg text-gray-400 mt-6 max-w-3xl mx-auto leading-relaxed">
-            A visionary leader at the forefront of digital innovation, Amir B. masterfully navigates the intricate landscapes of technology and marketing. With a distinguished career marked by strategic foresight and a relentless pursuit of excellence, he crafts and scales robust digital ecosystems, propels brands to new heights through data-driven campaigns, and architects cutting-edge solutions from high-frequency trading bots to sophisticated SaaS platforms. His ethos is built on seamless execution, technological prowess, and an unwavering commitment to driving impactful results in dynamic environments.
+            As a Technical & Operations Manager, Amir B. specializes in designing, building, and deploying robust digital solutions, leveraging AI as a core tool. His expertise lies in defining technical architectures, optimizing workflows, crafting effective prompts, managing integrations, and implementing rigorous validation processes. He translates complex requirements into tangible products, from custom web applications and specialized SaaS tools to internal automation bots and high-frequency trading systems, focusing always on practical value and operational excellence across various real-world projects.
           </p>
         </motion.header>
 
@@ -48,7 +48,7 @@ export default function Home() {
         <section className="mb-20">
           <h2 className="text-4xl font-bold text-center text-blue-400 mb-10">Core Competencies</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 px-4 py-8 bg-gradient-to-br from-slate-800/60 to-slate-900/60 rounded-2xl border border-gray-700 shadow-xl backdrop-filter backdrop-blur-lg">
-            {skills.slice(0, 4).map((skill, index) => ( // Displaying only the first 4 for a concise grid
+            {skills.slice(0, 4).map((skill, index) => (
               <div key={index} className="flex flex-col items-center p-4 text-center bg-slate-700/40 rounded-lg border border-blue-600/30 hover:bg-slate-700/60 transition-colors duration-300">
                 <skill.icon className="text-5xl text-blue-400 mb-3" />
                 <span className="text-lg font-semibold text-gray-200">{skill.name}</span>
@@ -60,7 +60,7 @@ export default function Home() {
         {/* Projects Section (Bento Grid) */}
         <section>
           <h2 className="text-4xl font-bold text-center text-blue-400 mb-12">Featured Work</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 auto-rows-fr"> {/* Changed to md:grid-cols-3 */} 
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 auto-rows-fr">
             {projects.map((project, index) => {
               const isElevenClub = project.name.includes("Eleven Club");
               return (
@@ -70,8 +70,8 @@ export default function Home() {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: index * 0.15 }}
                   whileHover={{ y: -10, boxShadow: "0 15px 30px rgba(0, 200, 255, 0.3)" }} // Hover effect with glow
-                  className={`relative p-8 rounded-2xl border border-gray-700 bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-filter backdrop-blur-md shadow-2xl transition-all duration-300 ease-in-out border-gradient-effect // Added border-gradient-effect
-                    ${isElevenClub ? 'md:col-span-2 md:row-span-2' : ''} // Applied md:col-span-2 and md:row-span-2
+                  className={`relative p-8 rounded-2xl border border-gray-700 bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-filter backdrop-blur-md shadow-2xl transition-all duration-300 ease-in-out border-gradient-effect
+                    ${isElevenClub ? 'md:col-span-2 md:row-span-2' : ''}
                     overflow-hidden flex flex-col
                   `}
                 >
