@@ -28,13 +28,13 @@ export default function Home() {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <div className="mx-auto mb-6 w-36 h-36 rounded-full overflow-hidden border-4 border-blue-500 shadow-xl glow-effect animate-pulse-subtle"> {/* Wrapper div for circular image */} 
+          <div className="mx-auto mb-6 w-36 h-36 rounded-full overflow-hidden border-4 border-blue-500 shadow-xl glow-effect animate-pulse-subtle relative"> {/* Added relative */} 
             <Image
               src="/avatar.png"
               alt="Amir B. Avatar"
               layout="fill"
               objectFit="cover"
-              className="rounded-full" // Keep rounded-full here for good measure, though parent div handles clipping
+              className="rounded-full"
             />
           </div>
           <h1 className="text-6xl font-extrabold text-blue-400 mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
